@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 public class Main {
@@ -6,12 +8,24 @@ public class Main {
 
     public static void main(String[] args) {
         outputOddNums();
+        outputEvenNums();
         System.out.println(nums);
     }
 
     public static void outputOddNums() {
         for (int num : nums) {
             if (num % 2 != 0) {
+                System.out.println(num);
+            }
+        }
+    }
+
+    public static void outputEvenNums() {
+        Collections.sort(nums);
+        int prevNums = Integer.MIN_VALUE;
+        for (int num : nums) {
+            if (num % 2 == 0 && num != prevNums) {
+                prevNums = num;
                 System.out.println(num);
             }
         }
