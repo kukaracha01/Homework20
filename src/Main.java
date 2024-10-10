@@ -8,6 +8,7 @@ public class Main {
         outputOddNums();
         outputEvenNums();
         outputUniqueWords();
+        outputNumberUniqueWords();
         System.out.println(nums);
     }
 
@@ -34,5 +35,13 @@ public class Main {
         Set<String> uniqueWords = new HashSet<>(strings);
         System.out.println(uniqueWords);
     }
-
-}
+    public static void outputNumberUniqueWords() {
+        Map<String, Integer> wordCounts = new HashMap<>();
+        for (String word : strings) {
+            wordCounts.put(word, wordCounts.getOrDefault(word, 0) + 1);
+        }
+        for (int count : wordCounts.values()) {
+            System.out.println(count);
+        }
+        }
+    }
